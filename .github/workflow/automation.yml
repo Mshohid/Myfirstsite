@@ -23,7 +23,7 @@ jobs:
   uses: JamesIves/github-pages-deploy-action@master
   if: success()
   env:
-    ACCESS_TOKEN: e12bc5e8fc174ff4ff7dbc092a9171f24b1ac24f
+    ACCESS_TOKEN:
     BASE_BRANCH: source
     BRANCH: master
     CNAME: shohidsfirstsite.com

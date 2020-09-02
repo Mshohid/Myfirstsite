@@ -1,7 +1,7 @@
  on:
    push:
        branches: 
-          - gh-pages 
+          - master 
 
  jobs: 
    job1:
@@ -24,13 +24,15 @@
          run: |
            python3 -m pip install --upgrade pip
            pip install invoke pelican[markdown]
-           pip install invole livereload
        - name: build the site
-         run: invoke livereload 
+         run: invoke build
+       - name: Add nojekyll
+         run: |
+           touch ./output/.nojekyll 
        - name: setup the SSH key
          env:
            PRIVATE_KEY: 
 
        
 
-        
+       

@@ -24,6 +24,7 @@
          run: |
            python3 -m pip install --upgrade pip
            pip install invoke pelican[markdown]
+           pip install invole livereload
        - name: build the site
          run: invoke livereload 
        - name: setup the SSH key

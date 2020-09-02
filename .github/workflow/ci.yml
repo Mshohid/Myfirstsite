@@ -1,0 +1,35 @@
+ on:
+   push:
+       branches: 
+          - gh-pages 
+
+ jobs: 
+   job1:
+     runs-on: [ubuntu-latest]
+     steps:
+       - name: checkout master branch 
+         uses: actions/checkout@v2
+         with:
+           persist-credentials: false       
+       - name: checkout gh-pages branch
+         uses: actions/checkout@v2
+         with: 
+           path: temp
+           persist-credentials: false
+       - name: set up python 3.8 
+         uses: actions/setup-python@v1
+         with:
+           python-version: 3.8
+       - name: install pelican
+         run: |
+           python3 -m pip install --upgrade pip
+           pip install invoke pelican[markdown]
+       - name: build the site
+         run: invoke livereload 
+       - name: setup the SSH key
+         env:
+           PRIVATE_KEY: 
+
+       
+
+        

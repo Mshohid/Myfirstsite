@@ -10,12 +10,7 @@
        - name: checkout master branch 
          uses: actions/checkout@v2
          with:
-           persist-credentials: false       
-       - name: checkout gh-pages branch
-         uses: actions/checkout@v2
-         with: 
-           path: temp
-           persist-credentials: false
+           persist-credentials: false  
        - name: set up python 3.8 
          uses: actions/setup-python@v1
          with:
